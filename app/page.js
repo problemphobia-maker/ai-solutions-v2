@@ -70,3 +70,13 @@ export default function Home() {
     </main>
   );
 }
+<footer
+  style={{
+    textAlign: "center",
+    marginTop: "60px",
+    padding: "30px",
+    borderTop: "1px solid #334155"
+  }}
+>
+  © 2026 AI Solutions Directory
+</footer>
