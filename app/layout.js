@@ -1,20 +1,15 @@
 export const metadata = {
   title: "AI Solutions",
-  description: "AI Tools Directory"
+  description: "Best AI Tools Directory",
+  verification: {
+    google: "99a0736a89755c7b",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html>
-      <body
-        style={{
-          background:"#0f172a",
-          color:"white",
-          margin:0
-        }}
-      >
-        {children}
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   );
 }
