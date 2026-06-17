@@ -2,7 +2,7 @@ export const metadata = {
   title: "AI Solutions",
   description: "Best AI Tools Directory",
   verification: {
-    google: "99a0736a89755c7b",
+    google: "HxAJb-n-KENc4Cx4Ka2KHIPgzZ_3a_PPPk4T1tqbpo8",
   },
 };
 
