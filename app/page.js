@@ -58,6 +58,39 @@ const [selectedCategory, setSelectedCategory] = useState("All");
           fontSize: "16px",
         }}
       />
+<div
+  style={{
+    display: "flex",
+    gap: "10px",
+    flexWrap: "wrap",
+    marginBottom: "40px",
+  }}
+>
+  <button
+    onClick={() => setSelectedCategory("All")}
+    style={{
+      padding: "10px 15px",
+      borderRadius: "8px",
+      cursor: "pointer",
+    }}
+  >
+    All
+  </button>
+
+  {tools.map((category) => (
+    <button
+      key={category.category}
+      onClick={() => setSelectedCategory(category.category)}
+      style={{
+        padding: "10px 15px",
+        borderRadius: "8px",
+        cursor: "pointer",
+      }}
+    >
+      {category.category}
+    </button>
+  ))}
+</div>
 
       {filteredTools.map((category, index) => (
         <section key={index} style={{ marginBottom: "50px" }}>
