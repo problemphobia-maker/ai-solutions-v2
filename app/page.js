@@ -5,6 +5,7 @@ import tools from "../data/tools";
 
 export default function Home() {
   const [search, setSearch] = useState("");
+const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredTools = tools
     .map((category) => ({
