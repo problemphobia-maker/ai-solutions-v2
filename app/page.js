@@ -1,43 +1,55 @@
-import { tools } from "../data/tools";
+import tools from "../data/tools";
 
 export default function Home() {
   return (
-    <main style={{ padding: "40px", fontFamily: "Arial" }}>
-      <h1>AI Solutions</h1>
-      <p>Explore AI tools category-wise.</p>
+    <main style={{padding:"30px",fontFamily:"Arial"}}>
+      <h1>AI Solutions Directory</h1>
 
-      {Object.entries(tools).map(([category, toolList]) => (
-        <section key={category} style={{ marginTop: "40px" }}>
-          <h2>{category}</h2>
+      <input
+        type="text"
+        placeholder="Search AI Tools..."
+        style={{
+          width:"100%",
+          padding:"12px",
+          marginBottom:"20px",
+          border:"1px solid #ddd",
+          borderRadius:"8px"
+        }}
+      />
+
+      {tools.map((section,index)=>(
+        <div key={index}>
+          <h2>{section.category}</h2>
 
           <div
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-              gap: "15px",
-              marginTop: "20px",
+              display:"grid",
+              gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))",
+              gap:"15px"
             }}
           >
-            {toolList.map((tool) => (
-              <a
-                key={tool.name}
-                href={tool.url}
-                target="_blank"
-                rel="noopener noreferrer"
+            {section.items.map((tool,idx)=>(
+              <div
+                key={idx}
                 style={{
-                  border: "1px solid #ddd",
-                  borderRadius: "10px",
-                  padding: "15px",
-                  textDecoration: "none",
-                  color: "black",
+                  border:"1px solid #ddd",
+                  padding:"15px",
+                  borderRadius:"10px"
                 }}
               >
                 <h3>{tool.name}</h3>
-                <p>Visit Website →</p>
-              </a>
+
+                <a
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Website →
+                </a>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
       ))}
     </main>
   );
