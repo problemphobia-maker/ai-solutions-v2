@@ -2,39 +2,50 @@ import tools from "../data/tools";
 
 export default function Home() {
   return (
-    <main style={{padding:"30px",fontFamily:"Arial"}}>
-      <h1>AI Solutions Directory</h1>
+    <main style={{ maxWidth: "1400px", margin: "0 auto", padding: "30px" }}>
 
-      <input
-        type="text"
-        placeholder="Search AI Tools..."
-        style={{
-          width:"100%",
-          padding:"12px",
-          marginBottom:"20px",
-          border:"1px solid #ddd",
-          borderRadius:"8px"
-        }}
-      />
+      <h1 style={{
+        fontSize: "48px",
+        textAlign: "center",
+        marginBottom: "10px"
+      }}>
+        AI Solutions
+      </h1>
 
-      {tools.map((section,index)=>(
-        <div key={index}>
-          <h2>{section.category}</h2>
+      <p style={{
+        textAlign: "center",
+        color: "#94a3b8",
+        marginBottom: "40px"
+      }}>
+        Discover the Best AI Tools Category Wise
+      </p>
+
+      {tools.map((category, index) => (
+        <section key={index} style={{ marginBottom: "50px" }}>
+
+          <h2 style={{
+            marginBottom: "20px",
+            borderBottom: "1px solid #334155",
+            paddingBottom: "10px"
+          }}>
+            {category.category}
+          </h2>
 
           <div
             style={{
-              display:"grid",
-              gridTemplateColumns:"repeat(auto-fill,minmax(220px,1fr))",
-              gap:"15px"
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fill,minmax(250px,1fr))",
+              gap: "20px"
             }}
           >
-            {section.items.map((tool,idx)=>(
+            {category.items.map((tool, idx) => (
               <div
                 key={idx}
                 style={{
-                  border:"1px solid #ddd",
-                  padding:"15px",
-                  borderRadius:"10px"
+                  background: "#1e293b",
+                  padding: "20px",
+                  borderRadius: "12px",
+                  border: "1px solid #334155"
                 }}
               >
                 <h3>{tool.name}</h3>
@@ -42,15 +53,20 @@ export default function Home() {
                 <a
                   href={tool.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  style={{
+                    color: "#38bdf8",
+                    textDecoration: "none"
+                  }}
                 >
-                  Visit Website →
+                  Visit Tool →
                 </a>
               </div>
             ))}
           </div>
-        </div>
+
+        </section>
       ))}
+
     </main>
   );
 }
