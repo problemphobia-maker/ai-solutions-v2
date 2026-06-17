@@ -69,7 +69,7 @@ export default function Home() {
                 <h3>{tool.name}</h3>
 
                 <a
-                  href={tool.link}
+                  href={tool.url}
                   target="_blank"
                   style={{
                     color: "#38bdf8",
