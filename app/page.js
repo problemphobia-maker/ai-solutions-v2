@@ -27,7 +27,13 @@ export default function Home() {
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
         <h1 style={{ fontSize: "60px" }}>AI Solutions</h1>
         <p>Discover the Best AI Tools Category Wise</p>
+<div style={{ textAlign: "center", marginBottom: "40px" }}>
+  <h1 style={{ fontSize: "60px" }}>AI Solutions</h1>
+  <p>Discover the Best AI Tools Category Wise</p>
 
+  <input
+    type="text"
+    placeholder="Search AI Tools..."
         <input
           type="text"
           placeholder="Search AI Tools..."
