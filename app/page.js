@@ -32,13 +32,20 @@ export default function Home() {
   <p>Discover the Best AI Tools Category Wise</p>
 
   <input
-    type="text"
-    placeholder="Search AI Tools..."
-        <input
-          type="text"
-          placeholder="Search AI Tools..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+  type="text"
+  placeholder="Search AI Tools..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  style={{
+    marginTop: "20px",
+    padding: "15px",
+    width: "400px",
+    maxWidth: "90%",
+    borderRadius: "10px",
+    border: "none",
+    fontSize: "16px",
+  }}
+/>
           style={{
             marginTop: "20px",
             padding: "15px",
