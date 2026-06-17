@@ -1,3 +1,4 @@
+import tools from "../data/tools";
 const tools = [
   {
     category: "Chatbots & AI Assistants",
