@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import tools from "../data/tools";
+import { tools } from "../data/tools";
 
 export default function Home() {
   const [search, setSearch] = useState("");
-const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredTools = tools
+  const filteredCategories = tools
     .map((category) => ({
       ...category,
       items: category.items.filter((tool) =>
@@ -19,114 +18,59 @@ const [selectedCategory, setSelectedCategory] = useState("All");
   return (
     <main
       style={{
-        maxWidth: "1400px",
-        margin: "0 auto",
-        padding: "30px",
+        background: "#08152f",
+        minHeight: "100vh",
+        color: "white",
+        padding: "40px",
       }}
     >
-      <h1
-        style={{
-          fontSize: "48px",
-          textAlign: "center",
-          marginBottom: "10px",
-        }}
-      >
-        AI Solutions
-      </h1>
+      <div style={{ textAlign: "center", marginBottom: "40px" }}>
+        <h1 style={{ fontSize: "60px" }}>AI Solutions</h1>
+        <p>Discover the Best AI Tools Category Wise</p>
 
-      <p
-        style={{
-          textAlign: "center",
-          color: "#94a3b8",
-          marginBottom: "30px",
-        }}
-      >
-        Discover the Best AI Tools Category Wise
-      </p>
+        <input
+          type="text"
+          placeholder="Search AI Tools..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={{
+            marginTop: "20px",
+            padding: "15px",
+            width: "400px",
+            maxWidth: "90%",
+            borderRadius: "10px",
+            border: "none",
+            fontSize: "16px",
+          }}
+        />
+      </div>
 
-      <input
-        type="text"
-        placeholder="🔍 Search AI Tools..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        style={{
-          width: "100%",
-          padding: "15px",
-          borderRadius: "10px",
-          border: "1px solid #334155",
-          marginBottom: "40px",
-          fontSize: "16px",
-        }}
-      />
-<div
-  style={{
-    display: "flex",
-    gap: "10px",
-    flexWrap: "wrap",
-    marginBottom: "40px",
-  }}
->
-  <button
-    onClick={() => setSelectedCategory("All")}
-    style={{
-      padding: "10px 15px",
-      borderRadius: "8px",
-      cursor: "pointer",
-    }}
-  >
-    All
-  </button>
-
-  {tools.map((category) => (
-    <button
-      key={category.category}
-      onClick={() => setSelectedCategory(category.category)}
-      style={{
-        padding: "10px 15px",
-        borderRadius: "8px",
-        cursor: "pointer",
-      }}
-    >
-      {category.category}
-    </button>
-  ))}
-</div>
-
-      {filteredTools.map((category, index) => (
-        <section key={index} style={{ marginBottom: "50px" }}>
-          <h2
-            style={{
-              marginBottom: "20px",
-              borderBottom: "1px solid #334155",
-              paddingBottom: "10px",
-            }}
-          >
-            {category.category}
-          </h2>
+      {filteredCategories.map((category) => (
+        <div key={category.category}>
+          <h2>{category.category}</h2>
 
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill,minmax(250px,1fr))",
+              gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))",
               gap: "20px",
+              marginBottom: "50px",
             }}
           >
-            {category.items.map((tool, idx) => (
+            {category.items.map((tool) => (
               <div
-                key={idx}
+                key={tool.name}
                 style={{
-                  background: "#1e293b",
-                  padding: "20px",
-                  borderRadius: "12px",
-                  border: "1px solid #334155",
+                  background: "#16233f",
+                  padding: "25px",
+                  borderRadius: "15px",
                 }}
               >
                 <h3>{tool.name}</h3>
 
                 <a
-                  href={tool.url}
+                  href={tool.link}
                   target="_blank"
-                  rel="noopener noreferrer"
                   style={{
                     color: "#38bdf8",
                     textDecoration: "none",
@@ -137,19 +81,8 @@ const [selectedCategory, setSelectedCategory] = useState("All");
               </div>
             ))}
           </div>
-        </section>
+        </div>
       ))}
-
-      <footer
-        style={{
-          textAlign: "center",
-          marginTop: "60px",
-          padding: "30px",
-          borderTop: "1px solid #334155",
-        }}
-      >
-        © 2026 AI Solutions Directory
-      </footer>
     </main>
   );
 }
